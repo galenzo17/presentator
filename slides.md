@@ -71,3 +71,108 @@ my-awesome-api/
     = ¡Código feliz!
 
 </v-click>
+
+---
+
+## Estrategia en Fases
+
+transition: fade
+
+    Fase 1: Traer login y autenticación
+    Fase 2: Migrar reportes y tareas programadas
+    Fase 3: Unificar base de datos
+    Fase 4: Ordenar endpoints y hacerlo bonito
+
+<v-click>
+
+    ¡Todos a bordo con tiempo, sin romper nada en producción!
+
+</v-click>
+
+---
+
+Ejemplo Rápido
+
+transition: fade
+
+// Pequeño snippet de autenticación (auth/login.js)
+try {
+  // Lógica de autenticación
+  const user = await authenticate(req.body)
+  res.json({ success: true, user })
+} catch (error) {
+  res.status(401).json({ success: false, error: error.message })
+}
+
+<v-click>
+
+    En un solo repo: ¡Autenticación clarita y sin doble código!
+
+</v-click>
+
+---
+
+Beneficios a Ojo de Buen Cubero
+
+transition: fade
+
+    Mantenimiento más sencillo
+    Más velocidad en desarrollos
+    Monitoreo central
+    Cero despliegues confusos
+
+<v-click>
+
+    Menos estrés, más tiempo para café ☕
+
+</v-click>
+
+---
+
+Cosas a Evitar
+
+transition: fade
+
+    Reinventar la rueda (no refactores locos)
+    Cambiar todo de golpe (no se rompan corazoncitos en producción)
+    Olvidar las pruebas (nadie quiere bugs)
+
+<v-click>
+
+    “Con calma y con tests, nada sale mal.”
+
+</v-click>
+¿Listos para la Unión?
+
+transition: fade class: text-center
+¡Un repo para gobernarlos a todos!
+<div v-click> <img src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif" alt="Celebración" width="300"/> </div>
+¡Gracias!
+
+transition: fade layout: center class: text-center
+
+¡A unificar y a triunfar!
+
+---
+
+---
+title: "Demo: Magic Move en Slidev"
+magic: true
+transition: fade
+---
+
+# Paso 1
+
+```js
+// Versión Inicial
+function greet() {
+  console.log("¡Hola, mundo!");
+}
+```
+
+```js
+// Versión Actualizada
+function greet(name) {
+  console.log(`¡Hola, ${name}!`);
+}
+```
