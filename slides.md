@@ -5,7 +5,7 @@ background: https://cover.sli.dev
 
 ## El pitch del Agus 
 
-![Danza divertida](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhxc3BxNTNnZ21oNWQxM3VxMDB6NWRmZTQ3Y25wMGVmY2o0emV4aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0He4fJxPCbfqv7Xi/giphy.webp)
+![loading](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhxc3BxNTNnZ21oNWQxM3VxMDB6NWRmZTQ3Y25wMGVmY2o0emV4aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0He4fJxPCbfqv7Xi/giphy.webp)
 
 
 ---
@@ -14,6 +14,12 @@ layout: center
 
 ## Migracion autenticación usuarios dashboard a la Api
 ````md magic-move
+```js {*}{lines:true,startLine:5}
+Problema
+
+Actualmente, la lógica de autenticación está dividida entre la API y el Dashboard, 
+lo que genera:
+```
 ```js {*}{lines:true,startLine:5}
 Problema
 
@@ -33,6 +39,7 @@ Unificar la funcionalidad de autenticación en la API principal,
 dejando el Dashboard como un cliente que consume 
 esta autenticación centralizada.
 ```
+
 ```js {*}{lines:true,startLine:5}
 Arquitectura Unificada
 
@@ -59,6 +66,12 @@ Fuera de Alcance
     necesario para la autenticación.
 ```
 ````
+<div v-click="[2,3]" class="gif-container">
+  <img src="/giphy.webp" class="gif-style"/>
+</div>
+<div v-click="[4,5]" class="gif-container">
+  <img src="/200.webp" class="gif-style"/>
+</div>
 
 ---
 title: Amazing slide title
@@ -70,3 +83,6 @@ Migracion
 autenticación
 </span>
  usuarios dashboard a la Api
+<div  class="gif-container">
+  <img src="/lisa.webp" class="gif-style"/>
+</div>

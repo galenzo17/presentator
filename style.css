@@ -17,3 +17,15 @@
     background-size: contain; /* o puedes usar valores específicos como '100% auto' */
     margin-bottom: 10px; /* ajusta el espacio desde el borde inferior */
   }
+
+  .gif-container {
+    position: absolute;
+/* ajusta para que no se sobreponga con tu footer */
+  }
+  
+  .gif-style {
+    width: 200px;  /* ajusta el tamaño según necesites */
+
+    border-radius: 8px;  /* opcional: para bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* opcional: para sombra suave */
+  }
