@@ -1,178 +1,72 @@
 ---
-title: "Un Repo Para Gobernarlos a Todos"
-theme: seriph
-favicon: "https://cdn.jsdelivr.net/gh/slidevjs/slidev@main/packages/docs/public/favicon.png"
-download: true
-layout: cover
-background: "https://source.unsplash.com/random/1920x1080?tech"
-transition: fade
+layout: center
+background: https://cover.sli.dev
 ---
 
-# Consolidación Máxima de Repositorios
+## El pitch del Agus 
 
-<small>(...y buena vibra de paso)</small>
+![Danza divertida](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhxc3BxNTNnZ21oNWQxM3VxMDB6NWRmZTQ3Y25wMGVmY2o0emV4aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0He4fJxPCbfqv7Xi/giphy.webp)
 
----
-
-## ¿Por qué Unirlos?
-
-transition: fade
-
-- **Menos** caos
-- **Más** orden
-- **Más** risas en el daily
-- ¡Y menos quebraderos de cabeza!
-
-<v-click>
-
-> "Tres repos entran a un bar…  
-> Se unifican en uno y ¡la fiesta sigue!"
-
-</v-click>
 
 ---
-
-## La Idea
-
-transition: fade
-
-**Objetivo Principal:**  
-Un solo lugar para:
-
-1. **Autenticación**
-2. **Jobs/Reportes**
-3. **Endpoints API**
-
-<v-click>
-
-> “Todos los problemas en un solo repositorio… ¡para solucionarlos más fácil!”
-
-</v-click>
-
+layout: center
 ---
 
-## Nueva Estructura de Carpetas
+## Migracion autenticación usuarios dashboard a la Api
+````md magic-move
+```js {*}{lines:true,startLine:5}
+Problema
 
-transition: fade
+Actualmente, la lógica de autenticación está dividida entre la API y el Dashboard, 
+lo que genera:
+-    Duplicación de lógica y puntos de falla.
+-    Mayor complejidad en el mantenimiento o actualización del flujo de autenticación.
+-    Dificultad para garantizar la seguridad y consistencia de los tokens en todos los servicios.
+-    Retos en la supervisión y resolución de problemas de acceso de usuarios.
 
-```bash
-my-awesome-api/
-├─ auth/          # Todo lo de Dashboard
-├─ jobs/          # Lo de Workflows
-├─ reports/       # Reportes centralizados
-├─ database/      # Acceso unificado
-├─ api/           # Endpoints (¡bye repos dispersos!)
-└─ ...
+Esta capa dispersa de autenticación complica la escalabilidad y el mantenimiento adecuado del sistema.
 ```
+```js {*}{lines:true,startLine:5}
+Solución
 
-<v-click>
-
-    Minimalismo + Organización
-    = ¡Código feliz!
-
-</v-click>
-
----
-
-## Estrategia en Fases
-
-transition: fade
-
-    Fase 1: Traer login y autenticación
-    Fase 2: Migrar reportes y tareas programadas
-    Fase 3: Unificar base de datos
-    Fase 4: Ordenar endpoints y hacerlo bonito
-
-<v-click>
-
-    ¡Todos a bordo con tiempo, sin romper nada en producción!
-
-</v-click>
-
----
-
-Ejemplo Rápido
-
-transition: fade
-
-// Pequeño snippet de autenticación (auth/login.js)
-try {
-  // Lógica de autenticación
-  const user = await authenticate(req.body)
-  res.json({ success: true, user })
-} catch (error) {
-  res.status(401).json({ success: false, error: error.message })
-}
-
-<v-click>
-
-    En un solo repo: ¡Autenticación clarita y sin doble código!
-
-</v-click>
-
----
-
-Beneficios a Ojo de Buen Cubero
-
-transition: fade
-
-    Mantenimiento más sencillo
-    Más velocidad en desarrollos
-    Monitoreo central
-    Cero despliegues confusos
-
-<v-click>
-
-    Menos estrés, más tiempo para café ☕
-
-</v-click>
-
----
-
-Cosas a Evitar
-
-transition: fade
-
-    Reinventar la rueda (no refactores locos)
-    Cambiar todo de golpe (no se rompan corazoncitos en producción)
-    Olvidar las pruebas (nadie quiere bugs)
-
-<v-click>
-
-    “Con calma y con tests, nada sale mal.”
-
-</v-click>
-¿Listos para la Unión?
-
-transition: fade class: text-center
-¡Un repo para gobernarlos a todos!
-<div v-click> <img src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif" alt="Celebración" width="300"/> </div>
-¡Gracias!
-
-transition: fade layout: center class: text-center
-
-¡A unificar y a triunfar!
-
----
-
----
-title: "Demo: Magic Move en Slidev"
-magic: true
-transition: fade
----
-
-# Paso 1
-
-```js
-// Versión Inicial
-function greet() {
-  console.log("¡Hola, mundo!");
-}
+Unificar la funcionalidad de autenticación en la API principal, 
+dejando el Dashboard como un cliente que consume 
+esta autenticación centralizada.
 ```
+```js {*}{lines:true,startLine:5}
+Arquitectura Unificada
 
-```js
-// Versión Actualizada
-function greet(name) {
-  console.log(`¡Hola, ${name}!`);
-}
+    Implementar un módulo centralizado de autenticación y autorización en la API.
+    Redirigir todos los endpoints de autenticación del Dashboard hacia la API.
+    Mantener una estructura modular que permita agregar o modificar flujos de
+     autenticación de forma independiente.
 ```
+```js {*}{lines:true,startLine:5}
+Beneficios Esperados
+
+    Reducción en la complejidad del mantenimiento.
+    Mayor seguridad al unificar la gestión de tokens y credenciales.
+    Implementación simplificada de nuevos flujos de autenticación.
+    Monitoreo más detallado de eventos de login y logout.
+    Ciclos de desarrollo más rápidos para nuevos requerimientos de autenticación.
+```
+```js {*}{lines:true,startLine:5}
+Fuera de Alcance
+
+    Reescribir funcionalidades no relacionadas con la autenticación.
+    Cambiar contratos de la API fuera del flujo de autenticación.
+    Modificar esquemas de base de datos más allá de lo estrictamente 
+    necesario para la autenticación.
+```
+````
+
+---
+title: Amazing slide title
+layout: center
+---
+
+Migracion 
+<span v-mark="{ at: 2, color: '#234', type: 'circle' , strokeWidth:8, padding:9 }">
+autenticación
+</span>
+ usuarios dashboard a la Api
